@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "e8123d5377a3c5921b4fe196ed6453f9"
+application_url = "https://much-modify-festivals-analyzed.trycloudflare.com"
+embedded = true
+name = "Pre Order Remix"
+handle = "pre-order-remix"
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://much-modify-festivals-analyzed.trycloudflare.com/auth/callback",
+  "https://much-modify-festivals-analyzed.trycloudflare.com/auth/shopify/callback",
+  "https://much-modify-festivals-analyzed.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
